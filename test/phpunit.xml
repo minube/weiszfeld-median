@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         verbose="true"
+         stopOnFailure="false"
+         processIsolation="false"
+         backupGlobals="false"
+         syntaxCheck="true" >
+    <testsuite name="WeiszfelMedianTestSuite">
+        <directory>./WeiszfelMedianTest</directory>
+    </testsuite>
+    <filter>
+        <blacklist>
+            <directory suffix=".php">../vendor/</directory>
+        </blacklist>
+        <whitelist>
+            <directory>../src</directory>
+        </whitelist>
+    </filter>
+</phpunit>
