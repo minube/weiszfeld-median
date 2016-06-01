@@ -57,6 +57,7 @@ class WeiszfelMedian
         );
         return $outputMedian;
     }
+
     /**
      * Adds an array from another array (adds the values at identical keys together)
      * @param array $arr1
