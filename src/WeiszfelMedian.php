@@ -16,17 +16,21 @@ class WeiszfelMedian
         $denominator = 0;
         $keys = array_keys($dataArray[0]);
         foreach ($dataArray as $dataPoint) {
-            $numerator = self::addArray(
-                $numerator, self::divideArray(
-                $dataPoint, self::vectorNorm(
-                self::subtractArray($dataPoint, $previousEstimate)
-            )
-            )
-            );
+            if ($dataPoint != $previousEstimate) {
+                $numerator = self::addArray(
+                    $numerator, self::divideArray(
+                    $dataPoint, self::vectorNorm(
+                    self::subtractArray($dataPoint, $previousEstimate)
+                )
+                )
+                );
+            }
         }
 
         foreach ($dataArray as $dataPoint) {
-            $denominator = $denominator + 1 / (self::vectorNorm(self::subtractArray($dataPoint, $previousEstimate)));
+            if ((self::vectorNorm(self::subtractArray($dataPoint, $previousEstimate)))) {
+                $denominator = $denominator + 1 / (self::vectorNorm(self::subtractArray($dataPoint, $previousEstimate)));
+            }
         }
 
         $median = self::divideArray($numerator, $denominator);
